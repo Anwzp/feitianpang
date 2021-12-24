@@ -5,7 +5,7 @@
       <li
         v-for="item of menu"
         :key="item.path"
-        :class="['menu-item', currentRoute.path === item.path]"
+        :class="['menu-item', currentRoute.path === item.path ? 'menu-item-active' : '']"
       >
         {{ item.name }}
       </li>
@@ -70,6 +70,9 @@ ref(menu)
       width: 0;
       border-bottom: 2px solid $base-color;
       transition: all 0.2s ease;
+    }
+    .menu-item-active {
+      border-bottom: 2px solid $base-color;
     }
     .menu-item:hover::before {
       width: 100%;
