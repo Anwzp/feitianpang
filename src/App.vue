@@ -1,11 +1,14 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
+  <div class="page">
     <router-view></router-view>
   </div>
 </template>
 
 <style lang="scss">
-@import url("@/style/index.scss");
+body {
+  position: relative;
+  min-height: 100vh;
+}
 </style>

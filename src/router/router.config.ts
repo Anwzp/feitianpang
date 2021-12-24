@@ -1,0 +1,24 @@
+import { RouteRecordRaw } from 'vue-router'
+import Layout from '@/layout/index.vue'
+
+const routerMap: Array<RouteRecordRaw> = [
+  {
+    path: '/',
+    component: Layout,
+    meta: {
+      permission: []
+    },
+    redirect: 'home',
+    children: [
+      {
+        path: '/home',
+        name: 'home',
+        meta: {
+          title: '首页',
+          permission: []
+        }
+      }
+    ]
+  }
+]
+export default routerMap

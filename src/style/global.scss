@@ -1,4 +1,4 @@
-@import url('./variable.scss');
+@import "@/style/variable.scss";
 body,
 div,
 section,
@@ -25,4 +25,11 @@ li,
 dl,
 ul {
   list-style: none;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+a:hover {
+  color: $base-color;
 }

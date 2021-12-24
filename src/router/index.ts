@@ -1,19 +1,10 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import Layout from "@/layout/index.vue";
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    component: Layout,
-    meta: {
-      title: '首页',
-    },
-    children: [
-    ]
-  }
-]
+import routerMap from './router.config'
+
+const routes: Array<RouteRecordRaw> = [...routerMap]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: routes
+  routes
 })
 export default router
