@@ -1,9 +1,7 @@
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
-// cosnt importModel = () => {
 
-// }
-const routerMap: Array<T> = [
+const routerMap: Array<RouteRecordRaw> = [
   {
     path: '/',
     component: Layout,
@@ -13,13 +11,13 @@ const routerMap: Array<T> = [
     redirect: 'home',
     children: [
       {
-        path: '/home',
+        path: 'home',
         name: 'home',
         meta: {
           title: '首页',
           permission: []
         },
-        components: () => require('@/views/home/home.vue')
+        component: () => import('@/views/home/home.vue')
       }
     ]
   }

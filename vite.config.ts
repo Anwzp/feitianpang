@@ -23,6 +23,12 @@ export default defineConfig({
     port: 8080,
     open: true,
     cors: true,
-    proxy: {}
+    proxy: {
+      '/api': {
+        target: 'http://api.douban.com/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, 'v2')
+      }
+    }
   }
 })

@@ -38,6 +38,7 @@ ref(menu)
   position: absolute;
   display: flex;
   top: 0;
+  z-index: 99;
   width: 100%;
   height: 30px;
   padding: 15px 0;

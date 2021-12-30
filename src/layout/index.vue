@@ -4,13 +4,14 @@ import Footer from './Footer.vue'
 </script>
 <template>
   <Headers></Headers>
-  <div class="content">
+  <div class="page">
     <router-view></router-view>
   </div>
   <Footer></Footer>
 </template>
 <style lang="scss" scoped>
-.content {
+.page {
+  position: relative;
   padding: 60px 0;
   background-image: url('../assets/home.jpg');
   background-size: cover;
