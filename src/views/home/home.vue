@@ -5,23 +5,15 @@
     </section>
     <section class="right-box">
       <Head></Head>
-      <Card v-slot:body class="newest">
-        <div class="watch">
-          <span
-            v-for="item of hours"
-            :key="item"
-            :class="{ big: item % 4 === 0, small: item % 4 !== 0 }"
-            :style="{ left: `${50 + (item % 4) * 5}%` }"
-          ></span>
-        </div>
-      </Card>
+      <Watch></Watch>
     </section>
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, $Common } from 'vue'
 import Card from '@/components/card/card.vue'
 import Head from './components/head.vue'
+import Watch from './components/watch.vue'
 
 class record {
   id: string
@@ -30,8 +22,10 @@ class record {
     this.id = id
   }
 }
+console.log($Common)
 const dataSouce: Array<record> = ref([])
-const hours: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+const hours: Array<number> = [...new Array(12).keys()]
+const now: Date = ref(new Date())
 </script>
 <style lang="scss" scoped>
 .body {
@@ -46,39 +40,6 @@ const hours: Array<number> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
   }
   .right-box {
     width: 300px;
-    .newest {
-      border: none;
-      // background-color: rgba($color: #eee, $alpha: 0.5);
-    }
-    .watch {
-      height: 150px;
-      width: 150px;
-      border: 2px solid #eee;
-      border-radius: 100%;
-      margin: 0 auto;
-      background-color: #eee;
-      background-image: url('@/assets/home.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: relative;
-      overflow: hidden;
-      span {
-        display: inline-block;
-        position: absolute;
-        width: 2px;
-        border-radius: 0 0 1px 1px;
-        background-color: #eee;
-      }
-      .hour {
-        height: 10px;
-        left: 50%;
-      }
-      .minute {
-        height: 5px;
-        left: 55%;
-        transform: rotate(6deg);
-      }
-    }
   }
 }
 </style>
