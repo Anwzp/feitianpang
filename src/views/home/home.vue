@@ -16,8 +16,8 @@ import Head from './components/head.vue'
 import Watch from './components/watch.vue'
 
 const { proxy } = getCurrentInstance()
-proxy.$Common.formatDate('123')
-console.log()
+// proxy.$Common.Time.formatDate()
+console.log(proxy.$Common.Time)
 </script>
 <style lang="scss" scoped>
 .body {
