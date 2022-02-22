@@ -5,7 +5,8 @@
       <li
         v-for="item of menu"
         :key="item.path"
-        :class="['menu-item', currentRoute.path === item.path ? 'menu-item-active' : '']"
+        @click="openPage(item.path)"
+        :class="['menu-item', currentRoute === item.path ? 'menu-item-active' : '']"
       >
         {{ item.name }}
       </li>
@@ -13,7 +14,8 @@
   </header>
 </template>
 <script setup lang="ts">
-import { ref, toRefs } from 'vue'
+import { ref, nextTick } from 'vue'
+// RouteRecordRaw
 import { useRouter } from 'vue-router'
 
 class router {
@@ -26,12 +28,17 @@ class router {
     this.path = path
   }
 }
-const currentRoute = useRouter().currentRoute.value
-const menu: Array<router> = [
+const route = useRouter()
+const currentRoute = ref<string>(route.currentRoute.value.path)
+const menu: Array<router> = ref<Array<object>>([
   { path: '/home', name: '首页' },
-  { path: '/mine', name: '联系我们' }
-]
-ref(menu)
+  { path: '/mine', name: '关于' }
+])
+// 跳转菜单
+const openPage = (path: string): void => {
+  route.push(path)
+  currentRoute.value = path
+}
 </script>
 <style lang="scss" scoped>
 .header {
@@ -45,6 +52,7 @@ ref(menu)
   justify-content: space-between;
   box-shadow: 0 1px 1px #eee;
   background: #fff;
+  transition: all 0.2s ease;
   .title {
     font-weight: 600;
     color: #333;
@@ -62,8 +70,9 @@ ref(menu)
       position: relative;
       z-index: 9;
     }
-    .menu-item::before {
-      content: '  ';
+    .menu-item::before,
+    .menu-item-active::before {
+      content: ' ';
       position: absolute;
       height: 100%;
       top: 0;
@@ -71,9 +80,6 @@ ref(menu)
       width: 0;
       border-bottom: 2px solid $base-color;
       transition: all 0.2s ease;
-    }
-    .menu-item-active {
-      border-bottom: 2px solid $base-color;
     }
     .menu-item:hover::before {
       width: 100%;

@@ -18,6 +18,15 @@ const routerMap: Array<RouteRecordRaw> = [
           permission: []
         },
         component: () => import('@/views/home/home.vue')
+      },
+      {
+        path: 'mine',
+        name: 'mine',
+        meta: {
+          title: '联系我们',
+          permission: []
+        },
+        component: () => import('@/views/mine/mine.vue')
       }
     ]
   }

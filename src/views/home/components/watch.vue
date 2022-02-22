@@ -3,7 +3,7 @@ import Card from '@/components/card/card.vue'
 </script>
 <template>
   <Card v-slot:body class="newest" :title="null" :bordered="false">
-    <div class="watch">
+    <!-- <div class="watch">
       <span class="hour" style="left: 75px"></span>
       <span class="hour" style="right: 10px; transform: rotate(90deg); top: 70px"></span>
       <span class="hour" style="bottom: 0px; left: 75px"></span>
@@ -18,6 +18,9 @@ import Card from '@/components/card/card.vue'
       <span class="hour-s" style="left: 15px; transform: rotate(300deg); top: 35px"></span>
       <span class="hour-s" style="left: 40px; transform: rotate(330deg); top: 10px"></span>
       <i class="dot"></i>
+    </div> -->
+    <div class="card-background">
+      <div></div>
     </div>
   </Card>
 </template>
@@ -25,7 +28,12 @@ import Card from '@/components/card/card.vue'
 $color: #666;
 .newest {
   border: none;
-  // background-color: rgba($color: #eee, $alpha: 0.5);
+
+  // background-color: #f0f0f0;
+}
+.card-background {
+  border-radius: 4px;
+  background: #ececec;
 }
 .watch {
   height: 150px;

@@ -17,7 +17,7 @@ import Watch from './components/watch.vue'
 
 const { proxy } = getCurrentInstance()
 // proxy.$Common.Time.formatDate()
-console.log(proxy.$Common.Time)
+// console.log(proxy.$Common.Time)
 </script>
 <style lang="scss" scoped>
 .body {
